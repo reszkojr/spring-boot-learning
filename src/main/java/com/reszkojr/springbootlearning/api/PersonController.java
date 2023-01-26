@@ -2,7 +2,9 @@ package com.reszkojr.springbootlearning.api;
 
 import com.reszkojr.springbootlearning.model.Person;
 import com.reszkojr.springbootlearning.service.PersonService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +22,7 @@ public class PersonController {
     }
 
     @PostMapping
-    public UUID addPerson(@RequestBody Person person) {
+    public UUID addPerson(@RequestBody @Valid @NonNull Person person) {
         return personService.addPerson(person);
     }
 
@@ -41,7 +43,7 @@ public class PersonController {
     }
 
     @PutMapping(path = "/{id}")
-    public void updatePerson(@PathVariable("id") UUID id, @RequestBody Person person) {
+    public void updatePerson(@PathVariable("id") UUID id, @Valid @NonNull @RequestBody Person person) {
         personService.updatePerson(id, person);
     }
 }
