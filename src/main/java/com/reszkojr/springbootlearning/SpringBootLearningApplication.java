@@ -1,4 +1,4 @@
-package com.reszkojr.SpringBootLearning;
+package com.reszkojr.springbootlearning;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
